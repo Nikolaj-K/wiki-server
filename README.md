@@ -24,3 +24,16 @@ The python plugging of the html scheme is also very hacky right now.
 I also have some ideas, so ask if interested.
 
 So I'm quite happy for PR's or hints and also feature ideas!
+
+----
+
+![readme_page](https://i.imgur.com/N9ShqVD.png)
+
+----
+
+![a_search_page](https://i.imgur.com/KvuaHdj.png)
+
+----
+
+![a_content_page](https://i.imgur.com/NNKjJWM.png)
+
