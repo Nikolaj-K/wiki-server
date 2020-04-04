@@ -35,5 +35,5 @@ So I'm quite happy for PR's or hints and also feature ideas!
 
 ----
 
-![a_content_page](https://i.imgur.com/vOCmGon.png)
+![a_content_page](https://i.imgur.com/33AyhnB.png)
 
