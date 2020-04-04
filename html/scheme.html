@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body style="background-color:#eef2ff;">
+        <div class="container" id="navigation" style="background-color:#d6daf0;position: sticky; top: 0;">
+            <form method="post">
+                <font color="#1e1c68">{filepath}</font>
+                <br>
+                <input type="text" name="textbox_content" style="outline-color: #eef2ff;" required autofocus>
+                <span>&nbsp;</span>
+                <a href="http://127.0.0.1:8080/{filename}/open">
+                  <font color="#177a49">Open</font>
+                </a>
+                <span>&nbsp;<b>/</b>&nbsp;</span>
+                <a href="http://127.0.0.1:8080/{filename}/">
+                  <font color="#177a49">Refresh</font>
+                </a>
+                <span>&nbsp;<b>/</b>&nbsp;</span>
+                <a href="http://127.0.0.1:8080/{filename}/new">
+                  <font color="#177a49">New file</font>
+                </a>
+            </form>
+        </div>
+        <br>
+        <div align="left" class="container" id="body">{file_content}</div>
+    </body>
+
+</html>
