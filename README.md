@@ -27,7 +27,7 @@ So I'm quite happy for PR's or hints and also feature ideas!
 
 ----
 
-![readme_page](https://i.imgur.com/N9ShqVD.png)
+![readme_page](https://i.imgur.com/Yuf2NqP.png)
 
 ----
 
@@ -35,5 +35,5 @@ So I'm quite happy for PR's or hints and also feature ideas!
 
 ----
 
-![a_content_page](https://i.imgur.com/NNKjJWM.png)
+![a_content_page](https://i.imgur.com/vOCmGon.png)
 
