@@ -15,7 +15,10 @@ Expressions with an `.` in it are interpreted as files to open, e.g., `presheaf.
 
 ----
 
-Tested on the latest MacOS. Run via `python main.py`. Then go to `http://127.0.0.1:8080/`.
+Run via `python main.py`. Then go to `http://127.0.0.1:8080/`.
+Tested on the latest MacOS. Requirements are only `flask` and and the `termcolor` library, but you can comment out the last one. Here's python3 from [anaconda](
+https://www.anaconda.com/distribution/#download-section) and with that you go `conda install -c anaconda flask
+`.
 
 ----
 
@@ -36,4 +39,8 @@ So I'm quite happy for PR's or hints and also feature ideas!
 ----
 
 ![a_content_page](https://i.imgur.com/33AyhnB.png)
+
+----
+
+For professional alternatives, I've previously use [dokuwiki](https://www.dokuwiki.org/dokuwiki) (PHP Apache server) and I like it, but it's a lot more bulky of course.
 
