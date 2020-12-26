@@ -1,0 +1,172 @@
+===== SU(2) actions for spherical coordinates =====
+==== Convention ====
+$\bullet$ Righthanded rotations, a.k.a. counterclockwise in plane (as supposed to lefthanded)
+(like standard complex number multiplication in the plane of rotation, with the axis pointing towards you).
+
+$\bullet$ Extrinsic rotation (as opposed to intrinsic):
+Eigenvectors of rotations lie on axes independent of angles.
+$\implies$ Next section is a note on that.
+
+$\bullet$ Active rotation, a.k.a. alibi (as opposed tot alias):
+Move object, not base.
+
+==== Extrincis vs. intrinsic rotations ====
+Intrinsic rotation:
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Euler2a.gif">
+See also
+https://i.makeagif.com/media/10-25-2017/5RiYOk.mp4
+
+Example (intrinsic)
+Angles: $−60°, 30°, 45°$
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/73/EulerG.png" width="600">
+
+Same end result as (extrinsic):
+Angles: $45°, 30°, -60°$
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/38/EulerX.png" width="600">
+
+https://en.wikipedia.org/wiki/Davenport_chained_rotations
+
+Sketch of equivalence:
+${\mathrm{id}}=ZZ^{-1}Y^{-1}\Big(X^{-1}X\Big)YX^{-1}X=Z(XYZ)^{-1}XYX^{-1}X$
+so
+$XYZ=\Big((XYZ)\cdot Z(XYZ)^{-1}\Big)\Big(XYX^{-1}\Big)X=:Z''Y'X$
+
+==== Example for a general rotation composition ====
+Extrinsic $z-x-z$-sequence of rotations generating all rotations:
+
+$\begin{pmatrix}
+\cos \phi & -\sin \phi & 0\\
+\sin \phi & \cos \phi & 0\\
+ 0 & 0 & 1
+\end{pmatrix}\cdot
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & \cos \theta & -\sin \theta\\
+0 & \sin \theta & \cos \theta
+\end{pmatrix}\cdot
+\begin{pmatrix}
+\cos \psi & -\sin \psi & 0\\
+\sin \psi & \cos \psi & 0\\
+ 0 & 0 & 1
+\end{pmatrix}$
+
+$=
+\begin{pmatrix}
+\cos\phi\cos\psi - \cos\theta\sin\phi\sin\psi & -\cos\phi\sin\psi - \cos\theta\sin\phi\cos\psi & \sin\phi\sin\theta\\
+\sin\phi\cos\psi + \cos\theta\cos\phi\sin\psi & -\sin\phi\sin\psi + \cos\theta\cos\phi\cos\psi & -\cos\phi\sin\theta\\
+\sin\psi\sin\theta & \cos\psi\sin\theta & \cos\theta
+\end{pmatrix}$
+
+==== Deriving spherical coordinates ====
+Reach $P_{{\mathbb R}^3}=\begin{pmatrix} x \\ y \\ z \end{pmatrix}\in{\mathbb R}^3$ via $\langle r, \theta, \varphi\rangle$.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/3D_Spherical.svg" width="300">
+
+Reach $P_{{\mathbb S}^2}=\begin{pmatrix} x \\ y \\ z \end{pmatrix}\in{\mathbb S}^2\subset {\mathbb R}^3$ reached via $\langle\theta, \varphi\rangle$ and then $P_{{\mathbb R}^3} = r P_{{\mathbb S}^2}$.
+To do so,
+1.
+start at $E_z=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$ and rotate around $y$-axis.
+Leaves $y$-value unchanged (at $0$), and, for small $\theta$, diminishes the $z$-value slightly.
+Clearly we obtain $P=\sin(\theta)E_x+\cos(\theta)E_z=\begin{pmatrix} \sin(\theta) \\ 0 \\ \cos(\theta) \end{pmatrix}$.
+2.
+Now rotate around $z$-axis.
+Leaves $z$-value unchanged (at $\cos(\theta)$), and, for small $\varphi$, diminishes the $x$-value slightly and grows $y$-value.
+We obtain $P=\cos(\varphi)\Big(\sin(\theta)E_x\Big)+\sin(\varphi)\Big(\sin(\theta)E_y\Big)+\cos(\theta)E_z=\begin{pmatrix} \cos(\varphi)\sin(\theta) \\ \sin(\varphi)\sin(\theta) \\ \cos(\theta) \end{pmatrix}$.
+
+Morally speaking: This amounts to two rotations all "$\exp(A\alpha)=\cos(\alpha)+A\sin(\alpha)$" of a vector on the $z-axis$ where
+in the first rotation, $A$ doesn't affect the $y$-dimension, and in the second it doesn't affect the $z$-dimension.
+
+==== Sidenote on general rotation matrices ====
+This completes a $yz$-sequence (first $y$, then $z$) of rotations.
+Can be extended to a $zyz$-sequence to cover all possible rotations:
+One could start with an auxiliary rotation $\psi$ around $E_z$, but this leaves $E_z$ invariant (by definition).
+So we can expect $\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\mapsto\begin{pmatrix} \cos(\varphi)\sin(\theta) \\ \sin(\varphi)\sin(\theta) \\ \cos(\theta) \end{pmatrix}$ be the action of some general rotation matrices.
+Compare columns in
+https://en.wikipedia.org/wiki/3D_rotation_group#Using_M%C3%B6bius_transformations
+or
+https://en.wikipedia.org/wiki/Rotation_matrix#General_rotations
+
+==== Actions in the space of matrices ====
+We collect insights about the (simple to compute) map
+$f(g, p) := g \cdot p \cdot g^*$
+where $*$ performs complex conjugation of all elements and transposition.
+
+$f(g, p)^* = (g \cdot p \cdot g^*)^* = g^{**} \cdot p^* \cdot g^* = f(g, p^*)$
+so
+$p^* = p \implies f(g, p)^* = f(g, p)$
+I.e. $f$ preserves self-adjoint property.
+
+$\det(f(g, p)) = \det(p) |\det(g)|^2$
+If
+$\det(g) \in U(1)$
+then
+$\det(f(g, p)) = \det(p)$
+I.e. $f$ preserves determinants.
+
+$f(g, p) \cdot f(g, q) = (g \cdot p \cdot g^*)(g \cdot q \cdot g^*) = f(g, p \cdot (g^* \cdot g) \cdot  q)$
+and
+${\mathrm{tr}}(f(g, p)) = {\mathrm{tr}}(p \cdot (g^* \cdot g))$
+
+Note: All overall phases are in tern kernel of this map, so we could effectively look at $\det(u)=1$.
+Let $g$ in ${\mathsf{U}}(n)$ (or ${\mathsf {SU}}(n)$ just as well, as noted)
+then
+$f(g, p) f(g, q) = f(g, p\cdot q)$
+$f$ distributes over products and preserves traces.
+
+===Summary===
+Using complex multiplication, we get an $n$ by $n$ linear representation of a special unitary, real parametrized group
+(which happens to be dimension $n^2-1$) transforming a $n^2$ real subspace (by a simple counting of dimension
+of hermitean matrices) in a way which preserves 2 invariants ($\det, {\mathrm{tr}}$).
+
+This is generally a non-trivial action.
+E.g. ${\mathsf{SU}}(2)$:
+Has $2$ by $2$ matrix rep of a $3$ dim group (call them $\theta, \varphi, \psi$) acting on
+a $4$ dimensions $p=(s,x,y,z)$, leaving $\det(p)=s^2-||(x,y,z)||^2$ invariant, as well as the trace.
+(Half the trace of a matrix product happens to equal the scalar product.)
+
+==== SU(2) for spherical coordinates ====
+Bijection:
+$P_{{\mathbb R}^4}=\begin{pmatrix} x \\ y \\ z \\ s \end{pmatrix}\in{\mathbb R}^4 \mapsto \begin{pmatrix} s+z & x+iy \\ x-iy & s-z \end{pmatrix}\in{\mathbb M}({\mathbb C})_{2\times 2}^\text{hermitean}$
+
+Any other permutation of where $s,x,y,z$ goes possible as well, of course.
+Also, we will not make use of $s$ in the following.
+
+See Hamiltonian quaternions and see Pauli matrices.
+
+$E_z=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\mapsto\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}\mapsto \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$
+(a.k.a. $\sigma_3$)
+
+$P_{{\mathbb S}^2}=\cos(\varphi)\Big(\sin(\theta)E_x\Big)+\sin(\varphi)\Big(\sin(\theta)E_y\Big)+\cos(\theta)E_z=\begin{pmatrix} \cos(\varphi)\sin(\theta) \\ \sin(\varphi)\sin(\theta) \\ \cos(\theta) \end{pmatrix} \mapsto \begin{pmatrix} \cos(\theta) & {\mathrm e}^{i\varphi}\sin(\theta) \\ {\mathrm e}^{-i\varphi}\sin(\theta) & -\cos(\theta) \end{pmatrix}$
+
+Indeed we can write
+$P_{{\mathbb S}^2} = \Big(U_{\tfrac{1}{2}\varphi} \cdot U_{\tfrac{1}{2}\theta}\Big) \cdot \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot \Big(U_{\tfrac{1}{2}\varphi} \cdot U_{\tfrac{1}{2}\theta}\Big)^*$
+
+with e.g.
+$U_{\tfrac{1}{2}\theta} = \begin{pmatrix} {\mathrm e}^{i\tfrac{1}{2}(\varphi+\pi/2)} & 0 \\ 0 & {\mathrm e}^{-i\tfrac{1}{2}(\varphi+\pi/2)} \end{pmatrix}$
+($\exp$ of $\sigma_3$ plus offset angle)
+and
+$U_{\tfrac{1}{2}\varphi} = \cos(\tfrac{1}{2}\theta)\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}+i\sin(\tfrac{1}{2}\theta)\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+
+Other offset angles and $\sigma_i$ matrices can be used for the representation
+(any two of the $\sigma$ generate the quaternion algebra, as e.g. $k=i\cdot j, e=-i\cdot i$)
+
+As $\det(r\cdot P_{{\mathbb S}^2})=-r^2$, we can also multiply the matrices to parametrize $P_{{\mathbb R}^3}$ this way.
+
+==== Qubits ====
+The simplest non-trivial QM system is the two-level Hilbert space ${\mathbb C}^2$.
+The vectors
+$|0\rangle:=\begin{pmatrix} 1 \\ 0 \end{pmatrix}$
+and
+$|1\rangle:=\begin{pmatrix} 0 \\ 1 \end{pmatrix}$
+span the space and, as an overall phase is not observable in inner products, all norm-one states are of the form
+$|\Psi\rangle=\cos(\tfrac{1}{2}\theta)|0\rangle+{\mathrm e}^{i\varphi}\sin(\tfrac{1}{2}\theta)|1\rangle = U(\theta,\varphi)|0\rangle$,
+similar to the above.
+So the states are also parametrized by the (Bloch) sphere, with the top $\theta=0$ corresponding to $|0\rangle$ and the bottom $\theta=\pi$ corresponding to $|1\rangle$.
+
+==== References ====
+https://en.wikipedia.org/wiki/Representation_theory_of_SU(2)
+https://en.wikipedia.org/wiki/3D_rotation_group#Connection_between_SO(3)_and_SU(2)
+https://en.wikipedia.org/wiki/Bloch_sphere
+
+https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates
+https://en.wikipedia.org/wiki/Vector_fields_in_cylindrical_and_spherical_coordinates

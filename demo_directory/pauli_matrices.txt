@@ -1,0 +1,134 @@
+===== su(2) basis vs. Pauli matrices vs. quaternions =====
+==== 2x2 Hermitian matrices ====
+Looking at complex matrices in ${\mathbb M}({\mathbb C})_{2\times 2}$.
+Conjugate transpose function:
+$\begin{pmatrix} \alpha & \beta \\ \gamma & \delta \end{pmatrix}^*:=\begin{pmatrix} \bar\alpha & \bar\gamma \\ \bar\beta & \bar\delta \end{pmatrix}$
+
+Hermitian matrix $m$:
+$m^* = m$.
+
+Generic point in ${\mathbb R}^4$:
+$Q = \begin{pmatrix} x \\ y \\ z \\ s \end{pmatrix}$
+
+Bijection between ${\mathbb R}^4$ and ${\mathbb M}({\mathbb C})_{2\times 2}^\text{hermitian}$:
+$K(Q) := \begin{pmatrix} s+z & x+iy \\ x-iy & s-z \end{pmatrix}$
+
+We can algebraically project out the values, e.g. using the trace $\tfrac{1}{2}{\mathrm{tr}}(Q)=s$ or by use of transposition.
+
+The map is ${\mathbb R}$-linear: $K(q\cdot Q_{I} + Q_{II}) = q\cdot K(Q_{I}) + K(Q_{II})$.
+
+Note that as far as plain bijections are concerned, there's $4!\cdot 2\cdot 2$ similar looking maps.
+E.g. another more random one would be $\begin{pmatrix} x-s & z-iy \\ z+iy & x+s \end{pmatrix}$.
+Another common one is $\begin{pmatrix} s+x & y+iz \\ y-iz & s-x \end{pmatrix}$.
+
+=== Traceless such matrices ===
+Define
+$e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$, $e_2 := \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$, $e_3 := \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$.
+
+Generic point in ${\mathbb R}^3$:
+$P = \begin{pmatrix} x \\ y \\ z \end{pmatrix}=x\, e_1 + y\, e_2 + z\, e_3$
+
+$H(P):= \begin{pmatrix} z & x+iy \\ x-iy & -z \end{pmatrix}$
+
+==== Spherical coordinates ====
+We can reach a generic point on ${\mathbb S}^2\subset{\mathbb R}^3$ e.g. starting at $e_3$ and angles in the range $\theta\in[0,\pi],\ \varphi\in[0,2\pi)$.
+E.g.
+$S = \begin{pmatrix} \cos(\varphi)\sin(\theta) \\ \sin(\varphi)\sin(\theta) \\ \cos(\theta) \end{pmatrix}$
+(see "Spherical coordinates video")
+
+$H(S) = \begin{pmatrix} \cos(\theta) & {\mathrm e}^{i\varphi}\sin(\theta) \\ {\mathrm e}^{-i\varphi}\sin(\theta) & -\cos(\theta) \end{pmatrix}$
+
+Generic point in ${\mathbb R}^3$, but now in spherical cooridnates.
+$R = r\cdot S$
+$H(R) = r\cdot H(S)$
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/3D_Spherical.svg" width="300">
+
+==== Bases and nomenclature ====
+All of the following matrices are presented with factors out, so that the top row has entries in $\{0,1\}$.
+All of the matrices determinants are in $\{+1,-1\}$ and the determinants are invariant under overall
+sign flips of the matrices, which correspond to axis mirrorings.
+The matrices also have properties like being (anti-)hermitean, (anti-)unitary or a combination of them.
+
+The following matrices have determinant $-1$:
+
+$\bullet$ $\sigma_1 := H(e_1) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+
+$\bullet$ $\sigma_y := H(e_2) = i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$
+
+$\bullet$ $\sigma_2 = -\sigma_y = -i \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$
+The one imaginary Pauli matrix.
+
+$\bullet$ $\sigma_3 := H(e_3) = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$
+
+$H(P) = x\, \sigma_1 + y\, \sigma_2 + z\, \sigma_3$
+The rest of the matrices have determinant $+1$:
+
+$\bullet$ $ g_1 = i \sigma_1 = i \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+
+$\bullet$ $ g_2 := i \sigma_y = -\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = \sigma_1 \cdot \sigma_3$
+The one real ${\mathsf{su}}(2)$ generator.
+Product of hermitean matrices isn't necessarily hermitean, as evidenced here.
+It's also the standard imaginary unit representation in ${\mathbb M}({\mathbb R})_{2\times 2}$.
+A.k.a. $q_j:=\pm g_2$, and either sign convention is used. The freedom here is just the automorphism extending ${\mathbb R}$ to ${\mathbb C}$.
+
+$\bullet$ $ g_3 = i \sigma_3 = i \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$
+A.k.a. $q_i := g_3$. The sign convention is standard here.
+
+$\bullet$ $ q_k := q_i \cdot q_j = \mp i \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \mp g_1$
+
+$\bullet$ $ g_0 = K(\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+The unit matrix.
+We might also say $\sigma_0$, but then be away that this has determinant $+1$.
+
+All $\sigma$-matrices ($1,y,2,3,0$) square to the unit matrix.
+All $g$-matrices ($1,2,3$) square to minus the unit matrix, e.g. $g_1^2=i \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}^2=-g_0$.
+Moreover, the product of most of the matrices above, when different, are proportional to the third.
+
+$\det\exp(A)=\lim_{n\to\infty}\det\left(1+\frac{1}{n}A\right)^n={\mathrm{e}}^{{\mathrm{tr}}(A)}$.
+$\implies$ $\exp$ of traceless matrices are special.
+Indeed, $\exp$ of $g$'s are unitary.
+
+==== Unitary matrices ====
+$U^{-1}=U^*$
+
+=== SU(2) ===
+Generalized Euler formula for $j$ in the field.
+$J^3=j^2J \implies \exp(z\,J) = E + \dfrac{\sinh(z\,j)}{j} J + \dfrac{\cosh(z\,j)-1}{j^2} J^2 $
+
+With this,
+$U_\psi := \exp\left(g_1\frac{1}{2}\psi\right) = \exp\left(i\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\frac{1}{2}\psi\right) = \cos(\tfrac{1}{2}\psi) g_0 + \sin(\tfrac{1}{2}\psi)g_1$
+
+$U_\theta := \exp\left(g_2\frac{1}{2}\theta\right) = \exp\left(\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\frac{1}{2}\theta\right) = \cos(\tfrac{1}{2}\theta) g_0 + \sin(\tfrac{1}{2}\theta)g_2$
+
+$U_\varphi := \exp\left(g_3\frac{1}{2}\varphi\right) = \exp\left(i\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\frac{1}{2}\varphi\right) = \cos(\tfrac{1}{2}\varphi) g_0 + \sin(\tfrac{1}{2}\varphi)g_3$
+
+Note: In multiplications of those, use
+$\sin(\alpha)=2\sin(\tfrac{1}{2}\alpha)\cos(\tfrac{1}{2}\alpha)$
+
+==== Adjoint action ====
+Action of $m$ wherever products $\cdot$ and inverses are defined
+$Ad[G]m := G\cdot m\cdot G^{-1}$
+
+Sidenote: Just as nice as this is the map
+$m\mapsto Ad[G^{-1}] m = G^{-1}\cdot m\cdot G$
+
+Has
+$(Ad[H]\circ Ad[G])m = H\cdot (G\cdot m\cdot G^{-1})\cdot H^{-1} = (H\cdot G)\cdot m\cdot (H\cdot G)^{-1} = Ad[H\cdot G] m$
+
+Example: $U_\varphi = \begin{pmatrix} {\mathrm e}^{i\tfrac{1}{2}\varphi} & 0 \\ 0 & {\mathrm e}^{-i\tfrac{1}{2}\varphi} \end{pmatrix}$ is simple to compute with:
+$Ad[U_\varphi] m = \begin{pmatrix} 1 & 0 \\ 0 & {\mathrm e}^{-i\varphi} \end{pmatrix} \cdot m\cdot  \begin{pmatrix} 1 & 0 \\ 0 & {\mathrm e}^{i\varphi} \end{pmatrix}$
+
+Example:
+$Ad[U_\varphi\cdot U_\theta \cdot U_\psi] H(e_3) = Ad[U_\varphi\cdot U_\theta] (-i g_3) =$ ... manipulating a sum of products of $g$'s ... $= \begin{pmatrix} \cos(\theta) & {\mathrm e}^{i\varphi}\sin(\theta) \\ {\mathrm e}^{-i\varphi}\sin(\theta) & -\cos(\theta) \end{pmatrix}$
+
+I.e.
+
+$H(S) = Ad[U_\varphi\cdot U_\theta] H(e_3)$
+
+Note: $\pm U$ induce the same ${\mathsf{SO}}(3)$ action.
+
+==== Other SO(3) encodings ====
+A general ${\mathsf{SU}}(2)$ element is of the form
+$\exp\left(\sum_{n=1}^3a_i\, g_i\right) = \alpha_0\, g_0 + \sum_{n=1}^3\alpha_i\, g_i$
+where, roughly, from $\vec{a}/||\vec{a}||, ||\vec{a}||$ one can compute axis and rotation angle, which also determine the quaternion 4-vector (versor).

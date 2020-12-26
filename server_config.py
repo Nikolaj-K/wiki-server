@@ -4,7 +4,7 @@ import os.path as path
 ROOT = path.join("/Users", "amoogle", "Documents", "Git", "wiki-server")
 FILEPATH_HTML_HOME = path.join(ROOT, 'README.md')
 
-HTML = path.join(ROOT, 'html')
+HTML = path.join(ROOT, 'server_templates')
 FILEPATH_HTML_SCHEME = path.join(HTML, 'scheme.html')
 FILEPATH_HTML_DEBUG = path.join(HTML, 'page_debug.html')
 FILEPATH_SEARCH_RESULTS = path.join(HTML, "tmp_search_results.txt")
@@ -21,6 +21,7 @@ SEARCH_FILEPATH_LEGAL_EXTENSIONS = [
     'py',
     'csv',
     'json',
+    'tex',
 ]
 WORD_FINDER_IGNORE_EXTENSIONS = [
     ".html",
@@ -34,6 +35,9 @@ WORD_FINDER_IGNORE_EXTENSIONS = [
     ".sample",
     ".DS_Store",
 ]
+WORD_FINDER_IGNORE_DIRS = [
+    ".git",
+]
 
 COLORS = dict(
     light_blue="#eef2ff",
@@ -42,5 +46,7 @@ COLORS = dict(
     grey_blue="#3f3f66",
     green="#177a49",
     red="#dc2629",
+    pink="#d6bad0",
     gray="#D1D5EE",
+    black="#000000"
 )

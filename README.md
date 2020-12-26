@@ -6,6 +6,8 @@ This is the README and also the main page of the wiki.
 Be sure to set `ROOT_PAGES` in `server_config.py` and all the other configs.
 Search for expressions in all `ROOT_PAGES` files in the search bar, e.g., by writing `map` and hitting enter.
 Expressions with an `.` in it are interpreted as files to open, e.g., `presheaf.txt`.
+Internal link: [[presheaf]]
+Others: [[pauli_matrices]], [[axioms_of_math]], [[int_prop_logic]], [[continuum_hypothesis_vid]]
 
 Run via `python main.py`. Then go to `http://127.0.0.1:8080/`.
 Tested on the latest MacOS. On Windows, I think some paths and file-extension handlings must be normalized for the page loading.
